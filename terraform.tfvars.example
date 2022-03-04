@@ -1,0 +1,10 @@
+access_key_id = "an access key id"
+secret_key_id = "a secret access key"
+
+omi_fedora28 = "ami-42ef70d7"
+omi_fedora33 = "ami-684db8b1"
+
+authorized_cidr = "1.2.3.4/32"
+
+git_address  = "https://github.com/skelkey/somerepo.git"
+package_name = "somepackage"

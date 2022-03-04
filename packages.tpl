@@ -1,0 +1,16 @@
+packages:
+  - rpmdevtools
+  - rpm-build
+  - git
+  - gcc
+  - make
+  - libnfnetlink-devel
+  - libnetfilter_log-devel
+  - libnetfilter_conntrack-devel
+  - libmnl-devel
+  - libnetfilter_acct-devel
+  - community-mysql-devel
+  - postgresql-devel
+  - libdbi-devel
+  - libdbi
+  - libpcap-devel

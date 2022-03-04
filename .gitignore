@@ -1,0 +1,5 @@
+*.swp
+*.tfvars
+*.hcl
+*.tfstate*
+.terraform
