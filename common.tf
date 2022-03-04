@@ -2,19 +2,12 @@ data "template_file" "packages" {
   template = "${file("${path.module}/packages.tpl")}"
 }
 
-data "template_file" "git" {
-  template = "${file("${path.module}/git.tpl")}"
-
-  vars = {
-    git_address = "${var.git_address}"
-  }
-}
-
 data "template_file" "build" {
   template = "${file("${path.module}/build.tpl")}"
 
   vars = {
     package_name = "${var.package_name}"
+    git_address = "${var.git_address}"
   }
 }
 
@@ -22,11 +15,6 @@ data "template_cloudinit_config" "rpm_builder" {
   part {
     content_type = "text/cloud-config"
     content      = "${data.template_file.packages.rendered}"
-  }
-
-  part {
-    content_type = "text/cloud-config"
-    content      = "${data.template_file.git.rendered}"
   }
 
   part {
