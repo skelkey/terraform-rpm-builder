@@ -6,6 +6,7 @@ RPM_PATH=/tmp/rpmbuild/RPMS/x86_64
 fedora28_rsa=$(mktemp /tmp/XXXXXX_fedora28_keypair.rsa)
 fedora33_rsa=$(mktemp /tmp/XXXXXX_fedora33_keypair.rsa)
 
+terraform init
 terraform apply --auto-approve
 
 fedora28_ip=$(terraform output --raw fedora28_rpm_builder)
