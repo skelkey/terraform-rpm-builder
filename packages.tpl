@@ -4,6 +4,8 @@ packages:
   - git
   - gcc
   - make
+  - selinux-policy-devel
+  - selinux-policy-targeted
   - libnfnetlink-devel
   - libnetfilter_log-devel
   - libnetfilter_conntrack-devel
