@@ -44,7 +44,7 @@ echo "Fedora 33 : ssh -i $fedora33_rsa fedora@$fedora33_ip"
 
 for i in $(seq 1 $TIMEOUT)
 do
-    echo -e "Try #$i (waiting $i minutes()) ..."
+    echo -n "Try #$i (waiting $i minutes()) ..."
     sleep ${i}m
     if ssh -o "StrictHostKeyChecking no" -i $fedora28_rsa fedora@$fedora28_ip test -e /tmp/done
     then
