@@ -2,6 +2,30 @@
 
 TIMEOUT=5
 RPM_PATH=/tmp/rpmbuild/RPMS/x86_64
+DEBUG=0
+OPTIND=1
+
+usage() {
+    echo "Usage: $0 [ -d ]"
+    echo "Build a RPM for Fedora 33 and Fedora 28 using terraform on Outscale cloud"
+    echo ""
+    echo "Options:"
+    echo "-d Activate the debug mode"
+}
+
+while getopts "h?d" opt; do
+    case "$opt" in
+        h|\?)
+	    usage
+	    exit 0
+	    ;;
+        d)
+	    DEBUG=1
+	    ;;
+    esac
+done
+shift $((OPTIND-1))
+[ "${1:-}" = "--" ] && shift
 
 fedora28_rsa=$(mktemp /tmp/XXXXXX_fedora28_keypair.rsa)
 fedora33_rsa=$(mktemp /tmp/XXXXXX_fedora33_keypair.rsa)
@@ -50,6 +74,13 @@ done
 if test $i -eq $TIMEOUT
 then
     echo "Failed to download RPMS from fedora 33"
+fi
+
+if [ $DEBUG = 1 ]; then
+    echo "Debug mode activated. Pausing before destruction of instances"
+    echo ""
+    echo "Press any key to continue ..."
+    read -n 1
 fi
 
 terraform destroy --auto-approve
