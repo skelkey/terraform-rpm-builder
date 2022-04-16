@@ -3,6 +3,8 @@ packages:
   - rpm-build
   - git
   - gcc
+  - autoconf
+  - automake
   - make
   - selinux-policy-devel
   - selinux-policy-targeted
